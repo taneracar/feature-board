@@ -57,7 +57,7 @@ CI (`.github/workflows/ci.yml`) runs lint, typecheck, unit tests and build on No
 
 ## Honest limits
 
-- **Not deployed and CI not yet run on GitHub.** Everything above was run locally on macOS.
+- **Not deployed.** The test numbers above come from local runs on macOS; GitHub Actions also passes (Node 22.18 + 24, and Playwright on Ubuntu).
 - **PGlite is single-process.** Fine for a demo and for tests; a real deployment needs a hosted Postgres (Neon, Supabase, RDS) and a shared rate-limit store. The login lockout is per email only; there is no per-IP limit, so one attacker can lock a victim's email for 15 minutes.
 - **No email**: no verification, password reset or invite emails. Invites are links you copy.
 - **No CSRF token**: it relies on Next.js's Origin/Host check for Server Actions plus `SameSite=Lax` cookies.
